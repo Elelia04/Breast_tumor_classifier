@@ -106,10 +106,10 @@ st.markdown("<br>", unsafe_allow_html=True)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/SOB_B_A-14-22549CD-40-008.png", caption="Benign Sample (40X)", use_container_width=True)
+    st.image("SOB_B_A-14-22549CD-40-008.png", caption="Benign Sample (40X)", use_container_width=True)
 
 with col2:
-    st.image("C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/SOB_M_MC-14-18842D-40-011.png", caption="Malignant Sample (40X)", use_container_width=True)
+    st.image("SOB_M_MC-14-18842D-40-011.png", caption="Malignant Sample (40X)", use_container_width=True)
 
 st.markdown("<br>", unsafe_allow_html= True)
 

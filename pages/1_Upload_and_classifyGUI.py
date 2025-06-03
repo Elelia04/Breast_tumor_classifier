@@ -239,8 +239,10 @@ st.markdown("""
 
 
 #BACKROUND IMAGE
+
 def set_background(image_file_name):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Ottieni il path assoluto alla cartella dove si trova streamlit_app.py
+    current_dir = os.path.dirname(os.path.dirname(__file__))
     image_path = os.path.join(current_dir, image_file_name)
     with open(image_path, "rb") as img_file:
         encoded = base64.b64encode(img_file.read()).decode()
@@ -258,4 +260,6 @@ def set_background(image_file_name):
         unsafe_allow_html=True
     )
 
+# Poi chiama:
 set_background("abstract-digital-grid-black-background.jpg")
+

@@ -1,1 +1,3 @@
 # Breast_tumor_classifier
+
+A breast cancer histopathological image classification pipeline using a ResNet-50-based deep learning model, trained across multiple magnification levels. By using transfer learning, data augmentation techniques and patient-wise splitting, we ensured both performance and generalizability.Among various configurations, we found that the 100X magnification model with batch size of 64 and 600 images per class achieved the most balanced performance. Additionally, the integration of Grad-CAM provided valuable insights into the regions that influenced predictions.These results show the potential of deep learning to support clinical diagnosis.

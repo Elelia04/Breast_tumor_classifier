@@ -258,4 +258,4 @@ def set_background(image_file_name):
         unsafe_allow_html=True
     )
 
-set_background("C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/abstract-digital-grid-black-background.jpg")
+set_background("abstract-digital-grid-black-background.jpg")

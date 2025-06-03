@@ -66,7 +66,6 @@ with col5:
 with col3:
     center_button = st.button("Start analysis")
 
-from streamlit.components.v1 import html
 
 #JS to redirect to the other page after clicking the button
 #Avoiding st.switch_page()

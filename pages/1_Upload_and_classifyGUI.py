@@ -1,5 +1,6 @@
 import sys
 import os
+import gdown
 sys.path.append(os.path.dirname(os.path.dirname(__file__))) 
 
 import streamlit as st
@@ -66,25 +67,38 @@ st.title("MILF model: upoload and analyze")
 
 magnification = st.selectbox("Select the image magnification:", ["40X", "100X", "200X", "400X"])
 
-#Confusion matrix path
+MODEL_URLS = {
+    "40X": "https://drive.google.com/uc?id=1BxyE2coxsy_CZJCmmEy4IFOiWfZF1B_e",
+    "100X": "https://drive.google.com/uc?id=1tyjYomweRk85d0q1pRIz0rtLfD6d423H",
+    "200X": "https://drive.google.com/uc?id=1f5aibGwtXV37VgQ1Ou_xgFMLn3f-5WUO",
+    "400X": "https://drive.google.com/uc?id=1FgDvNAB8G1dyOuaFc_51z99jXvHkNYr7"
+}
+
+MODEL_PATHS = {
+    "40X": "model_40X_b64_n500.pt",
+    "100X": "model_100X_b64_n600.pt",
+    "200X": "model_200X_b32_n500.pt",
+    "400X": "model_400X_b32_n500.pt"
+}
+
 conf_matrix_paths = {
-    "40X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/model_40X_b64_n500_CM.png",
-    "100X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/model_100X_b64_n600_CM.png", 
-    "200X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/model_200X_b32_n500_CM.png",
-    "400X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/model_400X_b32_n500_CM.png"
+    "40X": "model_40X_b64_n500_CM.png",
+    "100X": "model_100X_b64_n600_CM.png",
+    "200X": "model_200X_b32_n500_CM.png",
+    "400X": "model_400X_b32_n500_CM.png"
 }
 cm_path = conf_matrix_paths[magnification]
 
+def download_model(mag):
+    path = MODEL_PATHS[mag]
+    url = MODEL_URLS[mag]
+    if not os.path.exists(path):
+        with st.spinner(f"Downloading model {mag}..."):
+            gdown.download(url, path, quiet=False)
+    return path
 
-# Map magnifications to best-performing model paths
-model_paths = {
-    "40X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/pages/model_40X_b64_n500.pt",
-    "100X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/pages/model_100X_b64_n600.pt",
-    "200X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/pages/model_200X_b32_n500.pt",
-    "400X": "C:/Users/Eleonora/OneDrive/Desktop/AI LAB PROJECT/pages/model_400X_b32_n500.pt"
-}
 
-model_path = model_paths[magnification]
+model_path = download_model(magnification)
 uploaded_file = st.file_uploader("Upload a microscopic breast tumor image", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:

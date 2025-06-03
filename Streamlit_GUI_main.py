@@ -135,7 +135,7 @@ with st.expander("How did we develop the AI system?"):
 
 with st.expander("Full project report (PDF)"):
     st.markdown("""
-    You can download and read our complete project paper [here](https://drive.google.com/your-shared-link).
+    You can download and read our complete project paper [here](https://github.com/Elelia04/Breast_tumor_classifier/raw/main/MILF_report.pdf).
     """)
 
 st.markdown("<br>", unsafe_allow_html= True)

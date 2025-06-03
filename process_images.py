@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 DATA_ROOT = 'archive/BreaKHis_v1/BreaKHis_v1/histology_slides/breast'  # <- UPDATE IF NEEDED
 CLASSES = {'benign': 0, 'malignant': 1}
 MAGNIFICATIONS = ["40X", "100X", "200X", "400X"]
-N_PER_CLASS = 200  # Change this for fewer/more images
+N_PER_CLASS = 200  #Changing this for fewer/more images
 
 def collect_image_paths(label_str):
     root = os.path.join(DATA_ROOT, label_str)
@@ -27,7 +27,7 @@ def process_for_magnification(mag):
         mag_paths = [p for p in all_paths if os.sep + mag + os.sep in p]
         if not mag_paths:
             print(f"WARNING: No images found for {mag} {label_str}!")
-        mag_paths = mag_paths[:N_PER_CLASS]  # Take only first N_PER_CLASS
+        mag_paths = mag_paths[:N_PER_CLASS]  #Taking only first N_PER_CLASS
         for path in mag_paths:
             patient = extract_patient_id(path)
             rows.append((path, label, patient))

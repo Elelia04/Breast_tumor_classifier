@@ -4,7 +4,7 @@ A breast cancer histopathological image classification pipeline using a ResNet-5
 
 
 
-Note on .pt model files:
+#Note on .pt model files:
 
 The trained PyTorch model files (.pt) are not included in the repository or in the project zip due to file size restrictions.  
 When running the app, the required models are automatically downloaded from Google Drive (see `MODEL_URLS` in the code). No manual action is required.

@@ -4,6 +4,8 @@ A breast cancer histopathological image classification pipeline using a ResNet-5
 
 Contributors: Alessia Toska, Aditi Das, Eleonora Liani, Gerda Lukosiute
 
+
+
 #Note on .pt model files:
 
 The trained PyTorch model files (.pt) are not included in the repository or in the project zip due to file size restrictions.  

@@ -31,7 +31,6 @@ def generate_gradcam(model, img_tensor, target_layer):
     def backward_hook(module, grad_input, grad_output):
         gradients.append(grad_output[0].detach())
 
-    # Registra gli hook
     hook_f = target_layer.register_forward_hook(forward_hook)
     hook_b = target_layer.register_backward_hook(backward_hook)
 
@@ -41,7 +40,6 @@ def generate_gradcam(model, img_tensor, target_layer):
     model.zero_grad()
     score.backward()
 
-    # Rimuovi gli hook
     hook_f.remove()
     hook_b.remove()
 
@@ -67,6 +65,7 @@ st.title("MILF model: upoload and analyze")
 
 magnification = st.selectbox("Select the image magnification:", ["40X", "100X", "200X", "400X"])
 
+#Imported from drive
 MODEL_URLS = {
     "40X": "https://drive.google.com/uc?id=1BxyE2coxsy_CZJCmmEy4IFOiWfZF1B_e",
     "100X": "https://drive.google.com/uc?id=1tyjYomweRk85d0q1pRIz0rtLfD6d423H",
@@ -172,6 +171,7 @@ if uploaded_file is not None:
         
     st.markdown("<br><br>", unsafe_allow_html=True)
 
+    
     #ACCURACY VALUES 
 
     col1, col2, col3 = st.columns(3)
@@ -206,8 +206,6 @@ if uploaded_file is not None:
 
 
 
-#VISUAL ASPECTS 
-
 #SIDEBAR COLOUR
 st.markdown("""
     <style>
@@ -241,7 +239,6 @@ st.markdown("""
 #BACKROUND IMAGE
 
 def set_background(image_file_name):
-    # Ottieni il path assoluto alla cartella dove si trova streamlit_app.py
     current_dir = os.path.dirname(os.path.dirname(__file__))
     image_path = os.path.join(current_dir, image_file_name)
     with open(image_path, "rb") as img_file:

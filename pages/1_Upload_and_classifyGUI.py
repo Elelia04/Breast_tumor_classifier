@@ -17,7 +17,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 #Grad-CAM
-
 def generate_gradcam(model, img_tensor, target_layer):
     gradients = []
     activations = []

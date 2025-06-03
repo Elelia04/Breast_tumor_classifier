@@ -18,9 +18,6 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 #Grad-CAM
 
-import cv2
-import numpy as np
-
 def generate_gradcam(model, img_tensor, target_layer):
     gradients = []
     activations = []
@@ -149,7 +146,6 @@ if uploaded_file is not None:
 
 
     #GRAD-CAM IMPLEMENTATION, one image at a time
-        
     target_layer = model.layer4[1].conv2  
 
     col1, col2 = st.columns(2)
@@ -173,7 +169,6 @@ if uploaded_file is not None:
 
     
     #ACCURACY VALUES 
-
     col1, col2, col3 = st.columns(3)
 
     metrics_by_mag = {
@@ -237,7 +232,6 @@ st.markdown("""
 
 
 #BACKROUND IMAGE
-
 def set_background(image_file_name):
     current_dir = os.path.dirname(os.path.dirname(__file__))
     image_path = os.path.join(current_dir, image_file_name)
@@ -256,7 +250,6 @@ def set_background(image_file_name):
         """,
         unsafe_allow_html=True
     )
-
-# Poi chiama:
+    
 set_background("abstract-digital-grid-black-background.jpg")
 
